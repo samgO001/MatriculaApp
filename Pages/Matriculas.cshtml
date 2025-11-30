@@ -1,0 +1,59 @@
+@page "/Matriculas"
+@model MatriculasModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Listado de Matrículas</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .btn { background:#4CAF50;color:#fff;padding:6px 10px;border-radius:4px;text-decoration:none }
+    </style>
+</head>
+<body>
+    <h1>Listado de Matrículas</h1>
+
+    @if (Model.Matriculas == null || Model.Matriculas.Count == 0)
+    {
+        <p>No hay matrículas guardadas.</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Documento</th>
+                    <th>Curso</th>
+                    <th>Edad</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Matriculas.Count; i++)
+                {
+                    var m = Model.Matriculas[i];
+                    <tr>
+                        <td>@(i+1)</td>
+                        <td>@m.Nombre</td>
+                        <td>@m.Documento</td>
+                        <td>@m.Curso</td>
+                        <td>@m.Edad</td>
+                        <td>@m.Email</td>
+                        <td>
+                            <a class="btn" href="/Matricula/Download/@i">Descargar PDF</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <p><a href="/MatriculaForm">Registrar nueva matrícula</a></p>
+</body>
+</html>

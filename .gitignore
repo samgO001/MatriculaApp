@@ -1,0 +1,26 @@
+# Carpetas de compilación
+bin/
+obj/
+.vscode/
+.vs/
+
+# Archivos temporales
+*.log
+*.tmp
+*.pdf
+
+# Visual Studio
+*.user
+*.sln.user
+*.csproj.user
+
+# .NET
+*.exe
+*.dll
+*.pdb
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+matriculas.json
+matricula.json
